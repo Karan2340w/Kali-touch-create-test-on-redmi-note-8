@@ -1,4 +1,4 @@
-name: Android ROM Build
+name: Build Android ROM
 
 on:
   push:
