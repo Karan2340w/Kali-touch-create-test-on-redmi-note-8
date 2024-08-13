@@ -15,7 +15,7 @@ jobs:
 
     env:
       JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64
-      PATH: $JAVA_HOME/bin:$PATH
+      PATH: $JAVA_HOME/bin:$PATH:/usr/bin
 
     steps:
     - name: Checkout repository
@@ -30,6 +30,11 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop openjdk-8-jdk openjdk-8-jre pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev tar
+
+    - name: Verify `tar` command
+      run: |
+        which tar
+        tar --version
 
     - name: Initialize repo
       run: |
