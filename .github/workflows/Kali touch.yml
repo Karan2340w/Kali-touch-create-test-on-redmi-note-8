@@ -15,7 +15,7 @@ jobs:
 
     env:
       JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64
-      PATH: $JAVA_HOME/bin:$PATH:/usr/bin
+      PATH: $JAVA_HOME/bin:$PATH:/usr/bin:/usr/local/bin
 
     steps:
     - name: Checkout repository
@@ -30,6 +30,8 @@ jobs:
       run: |
         sudo curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
         sudo chmod a+x /usr/local/bin/repo
+        ls -l /usr/local/bin/repo # Verify installation
+        echo $PATH # Ensure /usr/local/bin is in the PATH
 
     - name: Verify `tar` command
       run: |
